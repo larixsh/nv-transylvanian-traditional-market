@@ -57,7 +57,18 @@ function App() {
             </button>
           </div>
         </nav>
+        <div className="hero-particles">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
+        <div className="hero-light"></div>
         <div className="hero-overlay">
           <div className="hero-content">
             <p className="hero-label">Gust autentic din Transilvania</p>
@@ -116,8 +127,98 @@ function App() {
           </div>
         </section>
 
-        <section id="categorii" className="temporary-section" aria-labelledby="categorii-title">
-          <h2 id="categorii-title">Categorii de produse</h2>
+        <section id="categorii" className="categories-section" aria-labelledby="categorii-title">
+          <div className="categories-container">
+            <p className="categories-label">Alege gustul preferat</p>
+
+            <h2 id="categorii-title">Categorii de produse</h2>
+
+            <div className="categories-grid">
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  PC
+                </div>
+
+                <h3>Preparate din carne</h3>
+
+                <p>Afumături și preparate tradiționale realizate după rețete locale.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Preparate din carne">
+                  Descoperă produsele
+                </a>
+              </article>
+
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  LA
+                </div>
+
+                <h3>Lactate</h3>
+
+                <p>Brânzeturi și produse lactate inspirate din gospodăriile tradiționale.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Lactate">
+                  Descoperă produsele
+                </a>
+              </article>
+
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  MI
+                </div>
+
+                <h3>Miere</h3>
+
+                <p>Produse apicole atent selecționate, cu gust și aromă naturală.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Miere">
+                  Descoperă produsele
+                </a>
+              </article>
+
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  DU
+                </div>
+
+                <h3>Dulcețuri</h3>
+
+                <p>Bunătăți din fructe pregătite pentru cămara unei gospodării.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Dulcețuri">
+                  Descoperă produsele
+                </a>
+              </article>
+
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  MU
+                </div>
+
+                <h3>Murături și zacuscă</h3>
+
+                <p>Rețete de sezon, pregătite cu legume și condimente atent alese.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Murături și zacuscă">
+                  Descoperă produsele
+                </a>
+              </article>
+
+              <article className="category-card">
+                <div className="category-symbol" aria-hidden="true">
+                  BT
+                </div>
+
+                <h3>Băuturi tradiționale</h3>
+
+                <p>Specialități regionale prezentate în cadrul selecției magazinului.</p>
+
+                <a href="#produse" aria-label="Vezi produsele din categoria Băuturi tradiționale">
+                  Descoperă produsele
+                </a>
+              </article>
+            </div>
+          </div>
         </section>
 
         <section id="produse" className="temporary-section" aria-labelledby="produse-title">
