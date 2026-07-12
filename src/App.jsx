@@ -2,6 +2,35 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import HiveIcon from "@mui/icons-material/Hive";
+import LiquorIcon from "@mui/icons-material/Liquor";
+import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
+import { Ham, Milk } from "lucide-react";
+function JamJarIcon() {
+  return (
+    <svg viewBox="0 0 32 32" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10 5h12" />
+      <path d="M9 8h14" />
+      <path d="M10 8v3l-2 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V14l-2-3V8" />
+      <path d="M11 17h10v6H11z" />
+      <circle cx="14" cy="20" r="1" />
+      <circle cx="18" cy="20" r="1" />
+    </svg>
+  );
+}
+
+function PickleJarIcon() {
+  return (
+    <svg viewBox="0 0 32 32" width="27" height="27" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M9 5h14" />
+      <path d="M8 8h16" />
+      <path d="M9 8v3l-2 3v10a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V14l-2-3V8" />
+      <path d="M12 15c2 2 2 6 0 9" />
+      <path d="M16 14c2 3 2 7 0 11" />
+      <path d="M20 15c2 2 2 6 0 9" />
+    </svg>
+  );
+}
 function App() {
   return (
     <>
@@ -136,7 +165,7 @@ function App() {
             <div className="categories-grid">
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  PC
+                  <Ham size={26} strokeWidth={1.8} />
                 </div>
 
                 <h3>Preparate din carne</h3>
@@ -150,7 +179,7 @@ function App() {
 
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  LA
+                  <Milk size={26} strokeWidth={1.8} />
                 </div>
 
                 <h3>Lactate</h3>
@@ -164,7 +193,7 @@ function App() {
 
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  MI
+                  <HiveIcon size={26} strokeWidth={1.8} />
                 </div>
 
                 <h3>Miere</h3>
@@ -178,7 +207,7 @@ function App() {
 
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  DU
+                  <JamJarIcon />
                 </div>
 
                 <h3>Dulcețuri</h3>
@@ -192,7 +221,7 @@ function App() {
 
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  MU
+                  <PickleJarIcon />
                 </div>
 
                 <h3>Murături și zacuscă</h3>
@@ -206,7 +235,7 @@ function App() {
 
               <article className="category-card">
                 <div className="category-symbol" aria-hidden="true">
-                  BT
+                  <LiquorIcon size={26} strokeWidth={1.8} />
                 </div>
 
                 <h3>Băuturi tradiționale</h3>
