@@ -7,17 +7,33 @@
     "description": "Preparat tradițional din carne de porc, organe atent selecționate și condimente aromate. Are o textură consistentă și un gust specific rețetelor de casă.",
     "price": 35,
     "weight": "0,5 kg",
-    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+    "details": [
+      "Produs afumat și condimentat tradițional",
+      "Greutate orientativă: 0,5 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
   },
   {
     "id": 2,
     "category": "preparate-carne",
     "name": "Slănină ardelenească",
     "image": "/assets/Preparate din carne/Slana-ardeleneasca.webp",
-    "description": "Slănină ardelenească fină și cărnoasă, afumată tradițional cu lemn de esență tare. Gust autentic, ideală alături de ceapă, pâine de casă și legume proaspete.",
+    "description": "Slănină ardelenească fină și cărnoasă, afumată tradițional cu lemn de esență tare. Gust autentic, potrivită alături de ceapă și pâine de casă.",
     "price": 35,
     "weight": "0,5 kg",
-    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+    "details": [
+      "Afumare lentă cu lemn de esență tare",
+      "Greutate orientativă: 0,5 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
   },
   {
     "id": 3,
@@ -27,16 +43,392 @@
     "description": "Cârnați realizați din carne de porc mangaliță, sare și condimente naturale. Membrana naturală și maturarea atentă contribuie la gustul lor intens.",
     "price": 55,
     "weight": "0,5 kg",
-    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+    "details": [
+      "Carne de mangaliță și condimente naturale",
+      "Greutate orientativă: 0,5 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
   },
   {
     "id": 4,
     "category": "preparate-carne",
     "name": "Costiță afumată",
     "image": "/assets/Preparate din carne/Costita-afumata.webp",
-    "description": "Costiță de porc pregătită și afumată lent, după metode tradiționale. Afumarea cu lemn de esență tare îi oferă o aromă bogată și un gust echilibrat.",
+    "description": "Costiță de porc pregătită și afumată lent după metode tradiționale. Afumarea cu lemn de esență tare îi oferă o aromă bogată și un gust echilibrat.",
     "price": 35,
     "weight": "0,5 kg",
-    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+    "details": [
+      "Afumare tradițională",
+      "Greutate orientativă: 0,5 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "lactate",
+    "name": "Brânză de burduf",
+    "image": "/assets/Lactate/Branza-de-burduf.webp",
+    "description": "Brânză frământată cu gust intens, preparată după rețete tradiționale de stână. Textura este cremoasă, iar aroma este specifică laptelui de oaie.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "details": [
+      "Produs din lapte de oaie",
+      "A se păstra la rece"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "lactate",
+    "name": "Caș de oaie",
+    "image": "/assets/Lactate/Cas-de-oaie.webp",
+    "description": "Caș proaspăt de oaie, cu gust delicat și textură moale. Poate fi servit simplu sau alături de mămăligă și legume.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "details": [
+      "Produs proaspăt",
+      "A se păstra la rece"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "lactate",
+    "name": "Telemea de oaie",
+    "image": "/assets/Lactate/Telemea-de-oaie.webp",
+    "description": "Telemea maturată din lapte de oaie, cu aromă echilibrată și consistență fermă. Potrivită pentru platouri, salate și preparate tradiționale.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "details": [
+      "Maturare atentă",
+      "A se păstra la rece"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 8,
+    "category": "lactate",
+    "name": "Urdă de oaie",
+    "image": "/assets/Lactate/Urda-de-oaie.webp",
+    "description": "Urdă fină și ușoară, obținută din zer de oaie. Are gust blând și poate fi consumată simplu sau în deserturi tradiționale.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "details": [
+      "Textură fină",
+      "A se păstra la rece"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "miere",
+    "name": "Fagure cu miere",
+    "image": "/assets/Miere/Fagure.webp",
+    "description": "Fagure natural cu miere, potrivit pentru consum direct. Păstrează aroma mierii și textura cerii naturale.",
+    "price": 19,
+    "weight": "100 g",
+    "details": [
+      "Produs apicol natural",
+      "Cantitate orientativă: 100 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "miere",
+    "name": "Miere cu cătină",
+    "image": "/assets/Miere/Miere-catina.webp",
+    "description": "Amestec de miere și cătină, cu aromă fructată și gust dulce acrișor. Potrivit pentru micul dejun sau pentru ceai.",
+    "price": 49,
+    "weight": "1 kg",
+    "details": [
+      "Miere și cătină",
+      "Borcan de 1 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 11,
+    "category": "miere",
+    "name": "Miere de salcâm",
+    "image": "/assets/Miere/Miere-salcam-1kg.webp",
+    "description": "Miere de salcâm limpede, cu gust delicat și aromă florală. Se cristalizează lent și este apreciată pentru textura sa fină.",
+    "price": 50,
+    "weight": "1 kg",
+    "details": [
+      "Miere monofloră",
+      "Borcan de 1 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 12,
+    "category": "miere",
+    "name": "Miere de tei",
+    "image": "/assets/Miere/Miere-tei.webp",
+    "description": "Miere de tei cu aromă intensă și gust floral. Este potrivită pentru ceai, deserturi sau consum direct.",
+    "price": 39,
+    "weight": "1 kg",
+    "details": [
+      "Aromă florală",
+      "Borcan de 1 kg"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 13,
+    "category": "muraturi-zacusca",
+    "name": "Ardei iuți în oțet",
+    "image": "/assets/Muraturi si Zacusca/Ardei-iuti-in-otet.webp",
+    "description": "Ardei iuți conservați în oțet, pregătiți pentru a completa ciorbe, tocănițe și preparate din carne.",
+    "price": 18,
+    "weight": "370 g",
+    "details": [
+      "Produs pasteurizat",
+      "Borcan de 370 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 14,
+    "category": "muraturi-zacusca",
+    "name": "Castraveți murați",
+    "image": "/assets/Muraturi si Zacusca/Castraveti-murati.webp",
+    "description": "Castraveți crocanți, murați după o rețetă simplă cu saramură, usturoi și condimente.",
+    "price": 22,
+    "weight": "720 g",
+    "details": [
+      "Murați în saramură",
+      "Borcan de 720 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "muraturi-zacusca",
+    "name": "Gogoșari murați",
+    "image": "/assets/Muraturi si Zacusca/Gogosari-murati.webp",
+    "description": "Gogoșari conservați în oțet, cu gust dulce acrișor și textură plăcută. Potriviți pentru mesele de sărbătoare.",
+    "price": 24,
+    "weight": "720 g",
+    "details": [
+      "Gust dulce acrișor",
+      "Borcan de 720 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "muraturi-zacusca",
+    "name": "Murături asortate",
+    "image": "/assets/Muraturi si Zacusca/Muraturi-asortate.webp",
+    "description": "Selecție de legume murate, pregătite în saramură cu plante aromatice și condimente.",
+    "price": 25,
+    "weight": "720 g",
+    "details": [
+      "Legume asortate",
+      "Borcan de 720 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 17,
+    "category": "muraturi-zacusca",
+    "name": "Sfeclă cu hrean",
+    "image": "/assets/Muraturi si Zacusca/Sfecla-cu-hrean.webp",
+    "description": "Sfeclă roșie cu hrean, cu gust echilibrat și aromă intensă. Se servește alături de fripturi și preparate tradiționale.",
+    "price": 20,
+    "weight": "370 g",
+    "details": [
+      "Sfeclă și hrean",
+      "Borcan de 370 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 18,
+    "category": "muraturi-zacusca",
+    "name": "Zacuscă de fasole",
+    "image": "/assets/Muraturi si Zacusca/Zacusca-de-fasole.webp",
+    "description": "Zacuscă de fasole cu legume coapte și condimente, gătită lent pentru un gust bogat și o textură cremoasă.",
+    "price": 27,
+    "weight": "300 g",
+    "details": [
+      "Legume coapte",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 19,
+    "category": "muraturi-zacusca",
+    "name": "Zacuscă de hribi",
+    "image": "/assets/Muraturi si Zacusca/Zacusca-de-hribi.webp",
+    "description": "Zacuscă aromată cu hribi și legume coapte. Gustul ciupercilor completează textura fină a preparatului.",
+    "price": 32,
+    "weight": "300 g",
+    "details": [
+      "Conține hribi",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 20,
+    "category": "muraturi-zacusca",
+    "name": "Zacuscă de vinete",
+    "image": "/assets/Muraturi si Zacusca/Zacusca-de-vinete.webp",
+    "description": "Zacuscă tradițională din vinete coapte, ardei și ceapă, pregătită lent pentru un gust autentic.",
+    "price": 25,
+    "weight": "300 g",
+    "details": [
+      "Vinete și ardei copți",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 21,
+    "category": "bauturi",
+    "name": "Horincă de Maramureș din prune",
+    "image": "/assets/Bauturi traditionale/Horinca-Maramures-prune-0.5 l.webp",
+    "description": "Băutură tradițională din prune, obținută prin distilare și maturare atentă. Se recomandă consum responsabil.",
+    "price": 75,
+    "weight": "0,5 l",
+    "details": [
+      "Produs tradițional",
+      "Volum: 0,5 l"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 22,
+    "category": "bauturi",
+    "name": "Horincă de prune, ediție de casă",
+    "image": "/assets/Bauturi traditionale/Horinca-Maramures-prune-0.5 l.webp",
+    "description": "Horincă de prune cu aromă intensă, inspirată din rețetele gospodăriilor maramureșene. Se recomandă consum responsabil.",
+    "price": 82,
+    "weight": "0,5 l",
+    "details": [
+      "Distilat din prune",
+      "Volum: 0,5 l"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 23,
+    "category": "bauturi",
+    "name": "Țuică de Maramureș din prune",
+    "image": "/assets/Bauturi traditionale/Tuica-Maramures-prune_0.5-l.webp",
+    "description": "Țuică din prune, cu aromă fructată și gust echilibrat. Produs destinat exclusiv persoanelor majore.",
+    "price": 68,
+    "weight": "0,5 l",
+    "details": [
+      "Distilat din prune",
+      "Volum: 0,5 l"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 24,
+    "category": "bauturi",
+    "name": "Vin de coacăze",
+    "image": "/assets/Bauturi traditionale/Vin-de-coacaze-0.75-l-.webp",
+    "description": "Vin aromat din coacăze, cu note fructate și gust dulce acrișor. Produs destinat exclusiv persoanelor majore.",
+    "price": 45,
+    "weight": "0,75 l",
+    "details": [
+      "Vin din fructe",
+      "Volum: 0,75 l"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
   }
 ]
