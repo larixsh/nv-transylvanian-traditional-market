@@ -41,20 +41,6 @@ function App() {
   const [productsError, setProductsError] = useState("");
   const [sortOrder, setSortOrder] = useState("initial");
   const [activePanel, setActivePanel] = useState(null);
-  const [ratings, setRatings] = useState({});
-
-  const productImageFallbacks = {
-    1: "/assets/Preparate din carne/Caltabos.webp",
-    2: "/assets/Preparate din carne/Slana-ardeleneasca.webp",
-    3: "/assets/Preparate din carne/Carnati-mangalita.webp",
-    4: "/assets/Preparate din carne/Costita-afumata.webp",
-  };
-
-  const badgeImages = [
-    "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
-    "/assets/Badge/100-natural-logo.png.webp",
-    "/assets/Badge/Hand-made-logo.webp.webp",
-  ];
 
   useEffect(() => {
     async function loadProducts() {
@@ -76,7 +62,6 @@ function App() {
 
     loadProducts();
   }, []);
-
   const sortedProducts = useMemo(() => {
     const productsCopy = [...products];
 
@@ -99,63 +84,20 @@ function App() {
     }))
     .filter((product) => product.quantity > 0);
 
-  const cartSubtotal = cartItems.reduce((total, product) => total + product.price * product.quantity, 0);
-  const freeShippingLimit = 250;
-  const shippingCost = cartSubtotal === 0 || cartSubtotal >= freeShippingLimit ? 0 : 20;
-  const orderTotal = cartSubtotal + shippingCost;
-
+  const cartTotal = cartItems.reduce((total, product) => total + product.price * product.quantity, 0);
   function toggleFavorite(productId) {
-    setFavoriteProducts((currentFavorites) =>
-      currentFavorites.includes(productId)
-        ? currentFavorites.filter((id) => id !== productId)
-        : [...currentFavorites, productId],
-    );
+    setFavoriteProducts((currentFavorites) => (currentFavorites.includes(productId) ? currentFavorites.filter((id) => id !== productId) : [...currentFavorites, productId]));
   }
 
   function addToCart(productId) {
     setCartProducts((currentCart) => [...currentCart, productId]);
   }
-
-  function decreaseCartQuantity(productId) {
-    setCartProducts((currentCart) => {
-      const productIndex = currentCart.indexOf(productId);
-
-      if (productIndex === -1) {
-        return currentCart;
-      }
-
-      return currentCart.filter((_, index) => index !== productIndex);
-    });
-  }
-
   function removeFromFavorites(productId) {
     setFavoriteProducts((currentFavorites) => currentFavorites.filter((id) => id !== productId));
   }
 
   function removeFromCart(productId) {
     setCartProducts((currentCart) => currentCart.filter((id) => id !== productId));
-  }
-
-  function rateProduct(productId, rating) {
-    setRatings((currentRatings) => ({
-      ...currentRatings,
-      [productId]: rating,
-    }));
-  }
-
-  function handleProductImageError(event, productId) {
-    const fallback = productImageFallbacks[productId];
-
-    if (fallback && event.currentTarget.src !== new URL(fallback, window.location.origin).href) {
-      event.currentTarget.src = fallback;
-      return;
-    }
-
-    event.currentTarget.style.visibility = "hidden";
-  }
-
-  function handleBadgeImageError(event) {
-    event.currentTarget.style.display = "none";
   }
   return (
     <>
@@ -251,129 +193,69 @@ function App() {
       </header>
       {activePanel && (
         <div className="shop-panel-overlay" onClick={() => setActivePanel(null)}>
-          <aside
-            className="shop-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="shop-panel-title"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <aside className="shop-panel" role="dialog" aria-modal="true" aria-labelledby="shop-panel-title" onClick={(event) => event.stopPropagation()}>
             <div className="shop-panel-header">
-              <h2 id="shop-panel-title">
-                {activePanel === "favorites" ? "Produse preferate" : "Coș de cumpărături"}
-              </h2>
+              <h2 id="shop-panel-title">{activePanel === "favorites" ? "Produse preferate" : "Coș de cumpărături"}</h2>
 
-              <button
-                type="button"
-                className="close-panel-button"
-                onClick={() => setActivePanel(null)}
-                aria-label="Închide panoul"
-              >
+              <button type="button" className="close-panel-button" onClick={() => setActivePanel(null)} aria-label="Închide panoul">
                 ×
               </button>
             </div>
 
             <div className="shop-panel-content">
-              {activePanel === "favorites" &&
-                (favoriteItems.length === 0 ? (
-                  <p className="empty-panel-message">Nu ai produse favorite.</p>
-                ) : (
-                  favoriteItems.map((product) => (
-                    <article className="panel-product" key={product.id}>
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="panel-product-image"
-                        onError={(event) => handleProductImageError(event, product.id)}
-                      />
-
-                      <div className="panel-product-info">
-                        <h3>{product.name}</h3>
-                        <p>{product.price} lei</p>
-                      </div>
-
-                      <button
-                        type="button"
-                        className="panel-remove-button"
-                        onClick={() => removeFromFavorites(product.id)}
-                        aria-label={`Elimină ${product.name} din favorite`}
-                        title="Elimină"
-                      >
-                        ×
-                      </button>
-                    </article>
-                  ))
-                ))}
-
-              {activePanel === "cart" &&
-                (cartItems.length === 0 ? (
-                  <p className="empty-panel-message">Coșul este gol.</p>
-                ) : (
-                  <>
-                    {cartItems.map((product) => (
-                      <article className="panel-product panel-cart-product" key={product.id}>
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="panel-product-image"
-                          onError={(event) => handleProductImageError(event, product.id)}
-                        />
+              {activePanel === "favorites" && (
+                <>
+                  {favoriteItems.length === 0 ? (
+                    <p className="empty-panel-message">Nu ai produse favorite.</p>
+                  ) : (
+                    favoriteItems.map((product) => (
+                      <article className="panel-product" key={product.id}>
+                        <img src={product.image} alt={product.name} className="panel-product-image" />
 
                         <div className="panel-product-info">
                           <h3>{product.name}</h3>
-                          <p>{product.price} lei / {product.weight}</p>
-
-                          <div className="quantity-controls" aria-label={`Cantitate pentru ${product.name}`}>
-                            <button type="button" onClick={() => decreaseCartQuantity(product.id)} aria-label="Scade cantitatea">
-                              −
-                            </button>
-                            <span>{product.quantity}</span>
-                            <button type="button" onClick={() => addToCart(product.id)} aria-label="Crește cantitatea">
-                              +
-                            </button>
-                          </div>
-
-                          <p className="panel-product-subtotal">
-                            Subtotal: {(product.price * product.quantity).toFixed(2)} lei
-                          </p>
+                          <p>{product.price} lei</p>
                         </div>
 
-                        <button
-                          type="button"
-                          className="panel-remove-button"
-                          onClick={() => removeFromCart(product.id)}
-                          aria-label={`Elimină ${product.name} din coș`}
-                          title="Elimină"
-                        >
+                        <button type="button" className="panel-remove-button" onClick={() => removeFromFavorites(product.id)} aria-label={`Elimină ${product.name} din favorite`} title="Elimină">
                           ×
                         </button>
                       </article>
-                    ))}
+                    ))
+                  )}
+                </>
+              )}
 
-                    <div className="cart-summary">
-                      <div>
-                        <span>Subtotal produse</span>
-                        <strong>{cartSubtotal.toFixed(2)} lei</strong>
+              {activePanel === "cart" && (
+                <>
+                  {cartItems.length === 0 ? (
+                    <p className="empty-panel-message">Coșul este gol.</p>
+                  ) : (
+                    <>
+                      {cartItems.map((product) => (
+                        <article className="panel-product" key={product.id}>
+                          <img src={product.image} alt={product.name} className="panel-product-image" />
+
+                          <div className="panel-product-info">
+                            <h3>{product.name}</h3>
+                            <p>Cantitate: {product.quantity}</p>
+                            <p>Subtotal: {(product.price * product.quantity).toFixed(2)} lei</p>
+                          </div>
+
+                          <button type="button" className="panel-remove-button" onClick={() => removeFromCart(product.id)} aria-label={`Elimină ${product.name} din coș`} title="Elimină">
+                            ×
+                          </button>
+                        </article>
+                      ))}
+
+                      <div className="panel-total">
+                        <span>Total</span>
+                        <strong>{cartTotal.toFixed(2)} lei</strong>
                       </div>
-
-                      <div>
-                        <span>Transport</span>
-                        <strong>{shippingCost === 0 ? "Gratuit" : `${shippingCost.toFixed(2)} lei`}</strong>
-                      </div>
-
-                      <div className="cart-summary-total">
-                        <span>Total comandă</span>
-                        <strong>{orderTotal.toFixed(2)} lei</strong>
-                      </div>
-
-                      {cartSubtotal > 0 && cartSubtotal < freeShippingLimit && (
-                        <p>
-                          Mai adaugă {(freeShippingLimit - cartSubtotal).toFixed(2)} lei pentru transport gratuit.
-                        </p>
-                      )}
-                    </div>
-                  </>
-                ))}
+                    </>
+                  )}
+                </>
+              )}
             </div>
           </aside>
         </div>
@@ -535,13 +417,7 @@ function App() {
               {sortedProducts.map((product) => (
                 <article className="product-card" key={product.id}>
                   <div className="product-image-wrapper">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                      loading="lazy"
-                      onError={(event) => handleProductImageError(event, product.id)}
-                    />
+                    <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
                     <button type="button" className={`favorite-button ${favoriteProducts.includes(product.id) ? "favorite-active" : ""}`} onClick={() => toggleFavorite(product.id)} aria-pressed={favoriteProducts.includes(product.id)} aria-label={favoriteProducts.includes(product.id) ? `Elimină ${product.name} din produsele preferate` : `Adaugă ${product.name} la produsele preferate`} title={favoriteProducts.includes(product.id) ? "Elimină de la favorite" : "Adaugă la favorite"}>
                       {favoriteProducts.includes(product.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </button>
@@ -559,31 +435,28 @@ function App() {
                       <strong>{product.price} lei</strong>
                     </div>
 
-                    <div className="product-rating" aria-label={`Evaluare: ${ratings[product.id] || 0} din 5 stele`}>
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          type="button"
-                          key={star}
-                          className={star <= (ratings[product.id] || 0) ? "rating-active" : ""}
-                          onClick={() => rateProduct(product.id, star)}
-                          aria-label={`Acordă ${star} ${star === 1 ? "stea" : "stele"}`}
-                          aria-pressed={star === ratings[product.id]}
-                        >
-                          {star <= (ratings[product.id] || 0) ? "★" : "☆"}
-                        </button>
-                      ))}
-                      <span>{ratings[product.id] ? "1 evaluare" : "0 evaluări"}</span>
+                    <div className="product-rating" aria-label="Produs fără evaluări">
+                      <button type="button" aria-label="Acordă 1 stea">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 2 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 3 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 4 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 5 stele">
+                        ☆
+                      </button>
+                      <span>0 evaluări</span>
                     </div>
 
-                    <div className="product-badges" aria-label="Caracteristicile produsului">
-                      {badgeImages.map((badge, index) => (
-                        <img
-                          key={badge}
-                          src={badge}
-                          alt={["Fabricat în Maramureș", "Produs natural", "Lucrat manual"][index]}
-                          loading="lazy"
-                          onError={handleBadgeImageError}
-                        />
+                    <div className="product-badges">
+                      {product.badges.map((badge) => (
+                        <img key={badge} src={badge} alt="" aria-hidden="true" loading="lazy" />
                       ))}
                     </div>
 
