@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "category": "preparate-carne",
+    "name": "Caltaboș tradițional",
+    "image": "/assets/Preparate din carne/Caltabos.webp",
+    "description": "Preparat tradițional din carne de porc, organe atent selecționate și condimente aromate. Are o textură consistentă și un gust specific rețetelor de casă.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+  },
+  {
+    "id": 2,
+    "category": "preparate-carne",
+    "name": "Slănină ardelenească",
+    "image": "/assets/Preparate din carne/Slana-ardeleneasca.webp",
+    "description": "Slănină ardelenească fină și cărnoasă, afumată tradițional cu lemn de esență tare. Gust autentic, ideală alături de ceapă, pâine de casă și legume proaspete.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+  },
+  {
+    "id": 3,
+    "category": "preparate-carne",
+    "name": "Cârnați de mangaliță",
+    "image": "/assets/Preparate din carne/Carnati-mangalita.webp",
+    "description": "Cârnați realizați din carne de porc mangaliță, sare și condimente naturale. Membrana naturală și maturarea atentă contribuie la gustul lor intens.",
+    "price": 55,
+    "weight": "0,5 kg",
+    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+  },
+  {
+    "id": 4,
+    "category": "preparate-carne",
+    "name": "Costiță afumată",
+    "image": "/assets/Preparate din carne/Costita-afumata.webp",
+    "description": "Costiță de porc pregătită și afumată lent, după metode tradiționale. Afumarea cu lemn de esență tare îi oferă o aromă bogată și un gust echilibrat.",
+    "price": 35,
+    "weight": "0,5 kg",
+    "badges": ["/assets/Badge/fabricat-maramures.webp", "/assets/Badge/natural.webp", "/assets/Badge/handmade.webp"]
+  }
+]

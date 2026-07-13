@@ -1,10 +1,13 @@
+import { useEffect, useState } from "react";
+
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import HiveIcon from "@mui/icons-material/Hive";
 import LiquorIcon from "@mui/icons-material/Liquor";
-import OutdoorGrillIcon from "@mui/icons-material/OutdoorGrill";
+
 import { Ham, Milk } from "lucide-react";
 function JamJarIcon() {
   return (
@@ -32,6 +35,40 @@ function PickleJarIcon() {
   );
 }
 function App() {
+  const [products, setProducts] = useState([]);
+  const [favoriteProducts, setFavoriteProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [productsError, setProductsError] = useState("");
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const response = await fetch("/products.json");
+
+        if (!response.ok) {
+          throw new Error("Produsele nu au putut fi încărcate.");
+        }
+
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        setProductsError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
+
+  function toggleFavorite(productId) {
+    setFavoriteProducts((currentFavorites) => (currentFavorites.includes(productId) ? currentFavorites.filter((id) => id !== productId) : [...currentFavorites, productId]));
+  }
+
+  function addToCart(productId) {
+    setCartProducts((currentCart) => [...currentCart, productId]);
+  }
   return (
     <>
       <header className="hero" id="acasa">
@@ -73,15 +110,15 @@ function App() {
 
             <button type="button" aria-label="Deschide produsele preferate" title="Favorite">
               <FavoriteBorderIcon />
-              <span className="nav-counter" aria-label="0 produse preferate">
-                0
+              <span className="nav-counter" aria-label={`${favoriteProducts.length} produse preferate`}>
+                {favoriteProducts.length}
               </span>
             </button>
 
             <button type="button" aria-label="Deschide coșul de cumpărături" title="Coș">
               <ShoppingCartOutlinedIcon />
-              <span className="nav-counter" aria-label="0 produse în coș">
-                0
+              <span className="nav-counter" aria-label={`${cartProducts.length} produse în coș`}>
+                {cartProducts.length}
               </span>
             </button>
           </div>
@@ -250,8 +287,88 @@ function App() {
           </div>
         </section>
 
-        <section id="produse" className="temporary-section" aria-labelledby="produse-title">
-          <h2 id="produse-title">Produse tradiționale</h2>
+        <section id="produse" className="products-section" aria-labelledby="produse-title">
+          <div className="products-container">
+            <div className="products-heading">
+              <div>
+                <p className="products-label">Selecție tradițională</p>
+                <h2 id="produse-title">Produse tradiționale</h2>
+              </div>
+
+              <label className="sort-label" htmlFor="sort-products">
+                Sortează după preț
+                <select id="sort-products" defaultValue="initial">
+                  <option value="initial">Ordine inițială</option>
+                  <option value="asc">Preț crescător</option>
+                  <option value="desc">Preț descrescător</option>
+                </select>
+              </label>
+            </div>
+
+            <div className="products-grid">
+              {loading && <p className="products-status">Se încarcă produsele...</p>}
+
+              {productsError && (
+                <p className="products-status products-error" role="alert">
+                  {productsError}
+                </p>
+              )}
+              {products.map((product) => (
+                <article className="product-card" key={product.id}>
+                  <div className="product-image-wrapper">
+                    <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
+                    <button type="button" className={`favorite-button ${favoriteProducts.includes(product.id) ? "favorite-active" : ""}`} onClick={() => toggleFavorite(product.id)} aria-pressed={favoriteProducts.includes(product.id)} aria-label={favoriteProducts.includes(product.id) ? `Elimină ${product.name} din produsele preferate` : `Adaugă ${product.name} la produsele preferate`} title={favoriteProducts.includes(product.id) ? "Elimină de la favorite" : "Adaugă la favorite"}>
+                      {favoriteProducts.includes(product.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </button>
+                  </div>
+
+                  <div className="product-content">
+                    <p className="product-category">Preparate din carne</p>
+
+                    <h3>{product.name}</h3>
+
+                    <p className="product-description">{product.description}</p>
+
+                    <div className="product-meta">
+                      <span>{product.weight}</span>
+                      <strong>{product.price} lei</strong>
+                    </div>
+
+                    <div className="product-rating" aria-label="Produs fără evaluări">
+                      <button type="button" aria-label="Acordă 1 stea">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 2 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 3 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 4 stele">
+                        ☆
+                      </button>
+                      <button type="button" aria-label="Acordă 5 stele">
+                        ☆
+                      </button>
+                      <span>0 evaluări</span>
+                    </div>
+
+                    <div className="product-badges">
+                      {product.badges.map((badge) => (
+                        <img key={badge} src={badge} alt="" aria-hidden="true" loading="lazy" />
+                      ))}
+                    </div>
+
+                    <p className="product-note">Fotografiile au caracter informativ. Aspectul produsului poate varia în funcție de sezon, producător și lotul de fabricație.</p>
+
+                    <button type="button" className="add-to-cart-button" onClick={() => addToCart(product.id)} aria-label={`Adaugă ${product.name} în coș`}>
+                      Adaugă în coș
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section id="contact" className="temporary-section" aria-labelledby="contact-title">
