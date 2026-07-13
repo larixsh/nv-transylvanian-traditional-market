@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useMemo, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -40,6 +39,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [productsError, setProductsError] = useState("");
+  const [sortOrder, setSortOrder] = useState("initial");
 
   useEffect(() => {
     async function loadProducts() {
@@ -61,7 +61,19 @@ function App() {
 
     loadProducts();
   }, []);
+  const sortedProducts = useMemo(() => {
+    const productsCopy = [...products];
 
+    if (sortOrder === "asc") {
+      return productsCopy.sort((a, b) => a.price - b.price);
+    }
+
+    if (sortOrder === "desc") {
+      return productsCopy.sort((a, b) => b.price - a.price);
+    }
+
+    return productsCopy;
+  }, [products, sortOrder]);
   function toggleFavorite(productId) {
     setFavoriteProducts((currentFavorites) => (currentFavorites.includes(productId) ? currentFavorites.filter((id) => id !== productId) : [...currentFavorites, productId]));
   }
@@ -297,7 +309,7 @@ function App() {
 
               <label className="sort-label" htmlFor="sort-products">
                 Sortează după preț
-                <select id="sort-products" defaultValue="initial">
+                <select id="sort-products" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
                   <option value="initial">Ordine inițială</option>
                   <option value="asc">Preț crescător</option>
                   <option value="desc">Preț descrescător</option>
@@ -313,7 +325,7 @@ function App() {
                   {productsError}
                 </p>
               )}
-              {products.map((product) => (
+              {sortedProducts.map((product) => (
                 <article className="product-card" key={product.id}>
                   <div className="product-image-wrapper">
                     <img src={product.image} alt={product.name} className="product-image" loading="lazy" />

@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -183,17 +184,17 @@ body {
   }
 }
 .main-navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 1000;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   padding: 22px 7%;
-  background-color: rgba(45, 25, 15, 0.72);
+  background-color: rgba(45, 25, 15, 0.92);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -361,13 +362,16 @@ body {
 
 @media (max-width: 900px) {
   .main-navbar {
-    position: relative;
+    position: fixed;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 24px;
+    padding: 16px 24px;
     background-color: #321d12;
   }
 
+  .hero-overlay {
+    padding-top: 260px;
+  }
   .site-logo {
     max-width: none;
     font-size: 20px;
@@ -380,7 +384,10 @@ body {
   }
 
   .hero-overlay {
-    min-height: calc(100vh - 150px);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 150px 7% 80px;
   }
 }
 
