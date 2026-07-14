@@ -148,13 +148,13 @@ This project helped strengthen practical knowledge in:
 1. Clone the repository
 
 ```bash
- git clone https://github.com/larixsh/ardeal-maramures-traditional-shop.git
+ git clone https://github.com/larixsh/nv-transylvanian-traditional-market.git
 ```
 
 2. Navigate to the project folder
 
 ```bash
- cd ardeal-maramures-traditional-shop
+ cd nv-transylvanian-traditional-market
 ```
 
 3. Install dependencies
