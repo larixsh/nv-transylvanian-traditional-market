@@ -637,10 +637,6 @@ body {
   .categories-grid {
     grid-template-columns: 1fr;
   }
-
-  .category-card {
-    min-height: auto;
-  }
 }
 .category-symbol svg {
   width: 26px;
@@ -1048,7 +1044,9 @@ body {
 }
 
 .product-rating button {
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
 
 .product-rating button.rating-active {
@@ -1266,4 +1264,22 @@ body {
     width: 64px;
     height: 64px;
   }
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #321d12;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }

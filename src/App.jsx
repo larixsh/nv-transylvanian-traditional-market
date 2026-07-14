@@ -50,11 +50,7 @@ function App() {
     4: "/assets/Preparate din carne/Costita-afumata.webp",
   };
 
-  const badgeImages = [
-    "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
-    "/assets/Badge/100-natural-logo.png.webp",
-    "/assets/Badge/Hand-made-logo.webp.webp",
-  ];
+  const badgeImages = ["/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp", "/assets/Badge/100-natural-logo.png.webp", "/assets/Badge/Hand-made-logo.webp.webp"];
 
   useEffect(() => {
     async function loadProducts() {
@@ -75,6 +71,21 @@ function App() {
     }
 
     loadProducts();
+  }, []);
+  useEffect(() => {
+    function handleEscape(event) {
+      if (event.key === "Escape") {
+        setSearchOpen(false);
+        setAccountOpen(false);
+        setActivePanel(null);
+      }
+    }
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   const sortedProducts = useMemo(() => {
@@ -105,11 +116,7 @@ function App() {
   const orderTotal = cartSubtotal + shippingCost;
 
   function toggleFavorite(productId) {
-    setFavoriteProducts((currentFavorites) =>
-      currentFavorites.includes(productId)
-        ? currentFavorites.filter((id) => id !== productId)
-        : [...currentFavorites, productId],
-    );
+    setFavoriteProducts((currentFavorites) => (currentFavorites.includes(productId) ? currentFavorites.filter((id) => id !== productId) : [...currentFavorites, productId]));
   }
 
   function addToCart(productId) {
@@ -159,6 +166,9 @@ function App() {
   }
   return (
     <>
+      <a className="skip-link" href="#continut-principal">
+        Sari direct la conținut
+      </a>
       <header className="hero" id="acasa">
         <nav className="main-navbar" aria-label="Navigarea principală">
           <a className="site-logo" href="#acasa">
@@ -251,24 +261,11 @@ function App() {
       </header>
       {activePanel && (
         <div className="shop-panel-overlay" onClick={() => setActivePanel(null)}>
-          <aside
-            className="shop-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="shop-panel-title"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <aside className="shop-panel" role="dialog" aria-modal="true" aria-labelledby="shop-panel-title" onClick={(event) => event.stopPropagation()}>
             <div className="shop-panel-header">
-              <h2 id="shop-panel-title">
-                {activePanel === "favorites" ? "Produse preferate" : "Coș de cumpărături"}
-              </h2>
+              <h2 id="shop-panel-title">{activePanel === "favorites" ? "Produse preferate" : "Coș de cumpărături"}</h2>
 
-              <button
-                type="button"
-                className="close-panel-button"
-                onClick={() => setActivePanel(null)}
-                aria-label="Închide panoul"
-              >
+              <button type="button" className="close-panel-button" onClick={() => setActivePanel(null)} aria-label="Închide panoul">
                 ×
               </button>
             </div>
@@ -280,25 +277,14 @@ function App() {
                 ) : (
                   favoriteItems.map((product) => (
                     <article className="panel-product" key={product.id}>
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="panel-product-image"
-                        onError={(event) => handleProductImageError(event, product.id)}
-                      />
+                      <img src={product.image} alt={product.name} className="panel-product-image" onError={(event) => handleProductImageError(event, product.id)} />
 
                       <div className="panel-product-info">
                         <h3>{product.name}</h3>
                         <p>{product.price} lei</p>
                       </div>
 
-                      <button
-                        type="button"
-                        className="panel-remove-button"
-                        onClick={() => removeFromFavorites(product.id)}
-                        aria-label={`Elimină ${product.name} din favorite`}
-                        title="Elimină"
-                      >
+                      <button type="button" className="panel-remove-button" onClick={() => removeFromFavorites(product.id)} aria-label={`Elimină ${product.name} din favorite`} title="Elimină">
                         ×
                       </button>
                     </article>
@@ -312,16 +298,13 @@ function App() {
                   <>
                     {cartItems.map((product) => (
                       <article className="panel-product panel-cart-product" key={product.id}>
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="panel-product-image"
-                          onError={(event) => handleProductImageError(event, product.id)}
-                        />
+                        <img src={product.image} alt={product.name} className="panel-product-image" onError={(event) => handleProductImageError(event, product.id)} />
 
                         <div className="panel-product-info">
                           <h3>{product.name}</h3>
-                          <p>{product.price} lei / {product.weight}</p>
+                          <p>
+                            {product.price} lei / {product.weight}
+                          </p>
 
                           <div className="quantity-controls" aria-label={`Cantitate pentru ${product.name}`}>
                             <button type="button" onClick={() => decreaseCartQuantity(product.id)} aria-label="Scade cantitatea">
@@ -333,18 +316,10 @@ function App() {
                             </button>
                           </div>
 
-                          <p className="panel-product-subtotal">
-                            Subtotal: {(product.price * product.quantity).toFixed(2)} lei
-                          </p>
+                          <p className="panel-product-subtotal">Subtotal: {(product.price * product.quantity).toFixed(2)} lei</p>
                         </div>
 
-                        <button
-                          type="button"
-                          className="panel-remove-button"
-                          onClick={() => removeFromCart(product.id)}
-                          aria-label={`Elimină ${product.name} din coș`}
-                          title="Elimină"
-                        >
+                        <button type="button" className="panel-remove-button" onClick={() => removeFromCart(product.id)} aria-label={`Elimină ${product.name} din coș`} title="Elimină">
                           ×
                         </button>
                       </article>
@@ -366,11 +341,7 @@ function App() {
                         <strong>{orderTotal.toFixed(2)} lei</strong>
                       </div>
 
-                      {cartSubtotal > 0 && cartSubtotal < freeShippingLimit && (
-                        <p>
-                          Mai adaugă {(freeShippingLimit - cartSubtotal).toFixed(2)} lei pentru transport gratuit.
-                        </p>
-                      )}
+                      {cartSubtotal > 0 && cartSubtotal < freeShippingLimit && <p>Mai adaugă {(freeShippingLimit - cartSubtotal).toFixed(2)} lei pentru transport gratuit.</p>}
                     </div>
                   </>
                 ))}
@@ -379,7 +350,7 @@ function App() {
         </div>
       )}
 
-      <main>
+      <main id="continut-principal">
         <section id="despre-noi" className="about-section" aria-labelledby="despre-title">
           <div className="about-layout">
             <figure className="about-image-card about-image-left">
@@ -535,13 +506,7 @@ function App() {
               {sortedProducts.map((product) => (
                 <article className="product-card" key={product.id}>
                   <div className="product-image-wrapper">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                      loading="lazy"
-                      onError={(event) => handleProductImageError(event, product.id)}
-                    />
+                    <img src={product.image} alt={product.name} className="product-image" loading="lazy" onError={(event) => handleProductImageError(event, product.id)} />
                     <button type="button" className={`favorite-button ${favoriteProducts.includes(product.id) ? "favorite-active" : ""}`} onClick={() => toggleFavorite(product.id)} aria-pressed={favoriteProducts.includes(product.id)} aria-label={favoriteProducts.includes(product.id) ? `Elimină ${product.name} din produsele preferate` : `Adaugă ${product.name} la produsele preferate`} title={favoriteProducts.includes(product.id) ? "Elimină de la favorite" : "Adaugă la favorite"}>
                       {favoriteProducts.includes(product.id) ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </button>
@@ -561,14 +526,7 @@ function App() {
 
                     <div className="product-rating" aria-label={`Evaluare: ${ratings[product.id] || 0} din 5 stele`}>
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          type="button"
-                          key={star}
-                          className={star <= (ratings[product.id] || 0) ? "rating-active" : ""}
-                          onClick={() => rateProduct(product.id, star)}
-                          aria-label={`Acordă ${star} ${star === 1 ? "stea" : "stele"}`}
-                          aria-pressed={star === ratings[product.id]}
-                        >
+                        <button type="button" key={star} className={star <= (ratings[product.id] || 0) ? "rating-active" : ""} onClick={() => rateProduct(product.id, star)} aria-label={`Acordă ${star} ${star === 1 ? "stea" : "stele"}`} aria-pressed={star === ratings[product.id]}>
                           {star <= (ratings[product.id] || 0) ? "★" : "☆"}
                         </button>
                       ))}
@@ -577,13 +535,7 @@ function App() {
 
                     <div className="product-badges" aria-label="Caracteristicile produsului">
                       {badgeImages.map((badge, index) => (
-                        <img
-                          key={badge}
-                          src={badge}
-                          alt={["Fabricat în Maramureș", "Produs natural", "Lucrat manual"][index]}
-                          loading="lazy"
-                          onError={handleBadgeImageError}
-                        />
+                        <img key={badge} src={badge} alt={["Fabricat în Maramureș", "Produs natural", "Lucrat manual"][index]} loading="lazy" onError={handleBadgeImageError} />
                       ))}
                     </div>
 
