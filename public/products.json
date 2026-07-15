@@ -217,6 +217,78 @@
   },
   {
     "id": 13,
+    "category": "dulceturi",
+    "name": "Dulceață de afine",
+    "image": "/assets/Dulceturi/Dulceata-de-afine.webp",
+    "description": "Dulceață aromată de afine, pregătită în loturi mici pentru a păstra gustul intens al fructelor de pădure.",
+    "price": 24,
+    "weight": "300 g",
+    "details": [
+      "Fructe atent selecționate",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 14,
+    "category": "dulceturi",
+    "name": "Dulceață de caise",
+    "image": "/assets/Dulceturi/Dulceata-de-caise.webp",
+    "description": "Dulceață fină de caise, cu aromă fructată și gust echilibrat, potrivită pentru micul dejun sau deserturi.",
+    "price": 22,
+    "weight": "200 g",
+    "details": [
+      "Preparată din caise coapte",
+      "Borcan de 200 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "dulceturi",
+    "name": "Dulceață de căpșuni",
+    "image": "/assets/Dulceturi/Dulceata-de-capsuni.webp",
+    "description": "Dulceață de căpșuni cu gust proaspăt și aromă intensă, pregătită după o rețetă simplă de casă.",
+    "price": 23,
+    "weight": "300 g",
+    "details": [
+      "Căpșuni atent selecționate",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "dulceturi",
+    "name": "Magiun de prune",
+    "image": "/assets/Dulceturi/Magiun-de-prune.webp",
+    "description": "Magiun dens din prune coapte, cu gust bogat și textură cremoasă, potrivit pentru pâine de casă și deserturi.",
+    "price": 25,
+    "weight": "300 g",
+    "details": [
+      "Preparat lent din prune",
+      "Borcan de 300 g"
+    ],
+    "badges": [
+      "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
+      "/assets/Badge/100-natural-logo.png.webp",
+      "/assets/Badge/Hand-made-logo.webp.webp"
+    ]
+  },
+  {
+    "id": 17,
     "category": "muraturi-zacusca",
     "name": "Ardei iuți în oțet",
     "image": "/assets/Muraturi si Zacusca/Ardei-iuti-in-otet.webp",
@@ -234,7 +306,7 @@
     ]
   },
   {
-    "id": 14,
+    "id": 18,
     "category": "muraturi-zacusca",
     "name": "Castraveți murați",
     "image": "/assets/Muraturi si Zacusca/Castraveti-murati.webp",
@@ -252,7 +324,7 @@
     ]
   },
   {
-    "id": 15,
+    "id": 19,
     "category": "muraturi-zacusca",
     "name": "Gogoșari murați",
     "image": "/assets/Muraturi si Zacusca/Gogosari-murati.webp",
@@ -270,7 +342,7 @@
     ]
   },
   {
-    "id": 16,
+    "id": 20,
     "category": "muraturi-zacusca",
     "name": "Murături asortate",
     "image": "/assets/Muraturi si Zacusca/Muraturi-asortate.webp",
@@ -288,7 +360,7 @@
     ]
   },
   {
-    "id": 17,
+    "id": 21,
     "category": "muraturi-zacusca",
     "name": "Sfeclă cu hrean",
     "image": "/assets/Muraturi si Zacusca/Sfecla-cu-hrean.webp",
@@ -306,7 +378,7 @@
     ]
   },
   {
-    "id": 18,
+    "id": 22,
     "category": "muraturi-zacusca",
     "name": "Zacuscă de fasole",
     "image": "/assets/Muraturi si Zacusca/Zacusca-de-fasole.webp",
@@ -324,7 +396,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 23,
     "category": "muraturi-zacusca",
     "name": "Zacuscă de hribi",
     "image": "/assets/Muraturi si Zacusca/Zacusca-de-hribi.webp",
@@ -342,7 +414,7 @@
     ]
   },
   {
-    "id": 20,
+    "id": 24,
     "category": "muraturi-zacusca",
     "name": "Zacuscă de vinete",
     "image": "/assets/Muraturi si Zacusca/Zacusca-de-vinete.webp",
@@ -360,7 +432,7 @@
     ]
   },
   {
-    "id": 21,
+    "id": 25,
     "category": "bauturi",
     "name": "Horincă de Maramureș din prune",
     "image": "/assets/Bauturi traditionale/Horinca-Maramures-prune-0.5 l.webp",
@@ -378,7 +450,7 @@
     ]
   },
   {
-    "id": 22,
+    "id": 26,
     "category": "bauturi",
     "name": "Horincă de prune, ediție de casă",
     "image": "/assets/Bauturi traditionale/Horinca-Maramures-prune-0.5 l.webp",
@@ -396,7 +468,7 @@
     ]
   },
   {
-    "id": 23,
+    "id": 27,
     "category": "bauturi",
     "name": "Țuică de Maramureș din prune",
     "image": "/assets/Bauturi traditionale/Tuica-Maramures-prune_0.5-l.webp",
@@ -414,7 +486,7 @@
     ]
   },
   {
-    "id": 24,
+    "id": 28,
     "category": "bauturi",
     "name": "Vin de coacăze",
     "image": "/assets/Bauturi traditionale/Vin-de-coacaze-0.75-l-.webp",
