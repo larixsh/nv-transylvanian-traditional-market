@@ -56,11 +56,7 @@ const PRODUCT_IMAGE_FALLBACKS = {
   4: "/assets/Preparate din carne/Costita-afumata.webp",
 };
 
-const DEFAULT_BADGES = [
-  "/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp",
-  "/assets/Badge/100-natural-logo.png.webp",
-  "/assets/Badge/Hand-made-logo.webp.webp",
-];
+const DEFAULT_BADGES = ["/assets/Badge/Fabricat-in-Maramures-1_iconita.webp.webp", "/assets/Badge/100-natural-logo.png.webp", "/assets/Badge/Hand-made-logo.webp.webp"];
 
 function JamJarIcon() {
   return (
@@ -200,10 +196,7 @@ function App() {
     if (!query) return [];
     return products.filter((product) => {
       const categoryName = CATEGORY_NAMES[product.category] || "";
-      return [product.name, product.description, categoryName]
-        .join(" ")
-        .toLocaleLowerCase("ro")
-        .includes(query);
+      return [product.name, product.description, categoryName].join(" ").toLocaleLowerCase("ro").includes(query);
     });
   }, [products, searchQuery]);
 
@@ -351,45 +344,79 @@ function App() {
 
   return (
     <>
-      <a className="skip-link" href="#continut-principal">Sari direct la conținut</a>
+      <a className="skip-link" href="#continut-principal">
+        Sari direct la conținut
+      </a>
 
       <header className="hero" id="acasa">
         <nav className="main-navbar" aria-label="Navigarea principală">
-          <a className="site-logo" href="#acasa">Bunătăți din Ardeal &amp; Maramureș</a>
+          <a className="site-logo" href="#acasa">
+            Bunătăți din Ardeal &amp; Maramureș
+          </a>
 
           <ul className="nav-links">
-            <li><a href="#acasa">Acasă</a></li>
-            <li><a href="#despre-noi">Despre noi</a></li>
-            <li><a href="#categorii">Categorii</a></li>
-            <li><a href="#produse">Produse</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="#acasa">Acasă</a>
+            </li>
+            <li>
+              <a href="#despre-noi">Despre noi</a>
+            </li>
+            <li>
+              <a href="#categorii">Categorii</a>
+            </li>
+            <li>
+              <a href="#produse">Produse</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
           </ul>
 
           <div className="nav-actions" aria-label="Acțiuni utilizator">
-            <button type="button" onClick={() => setSearchOpen(true)} aria-label="Caută produse" title="Caută produse"><SearchIcon /></button>
-            <button type="button" onClick={() => setAccountOpen(true)} aria-label="Deschide contul utilizatorului" title="Cont"><AccountCircleOutlinedIcon /></button>
+            <button type="button" onClick={() => setSearchOpen(true)} aria-label="Caută produse" title="Caută produse">
+              <SearchIcon />
+            </button>
+            <button type="button" onClick={() => setAccountOpen(true)} aria-label="Deschide contul utilizatorului" title="Cont">
+              <AccountCircleOutlinedIcon />
+            </button>
             <button type="button" onClick={() => setActivePanel("favorites")} aria-label="Deschide produsele preferate" title="Favorite">
               <FavoriteBorderIcon />
-              <span className="nav-counter" aria-label={`${favoriteProducts.length} produse preferate`}>{favoriteProducts.length}</span>
+              <span className="nav-counter" aria-label={`${favoriteProducts.length} produse preferate`}>
+                {favoriteProducts.length}
+              </span>
             </button>
             <button type="button" onClick={() => setActivePanel("cart")} aria-label="Deschide coșul de cumpărături" title="Coș">
               <ShoppingCartOutlinedIcon />
-              <span className="nav-counter" aria-label={`${cartProducts.length} produse în coș`}>{cartProducts.length}</span>
+              <span className="nav-counter" aria-label={`${cartProducts.length} produse în coș`}>
+                {cartProducts.length}
+              </span>
             </button>
           </div>
         </nav>
 
-        <div className="hero-particles" aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <span key={index}></span>)}</div>
+        <div className="hero-particles" aria-hidden="true">
+          {Array.from({ length: 8 }, (_, index) => (
+            <span key={index}></span>
+          ))}
+        </div>
         <div className="hero-light" aria-hidden="true"></div>
 
         <div className="hero-overlay">
           <div className="hero-content">
             <p className="hero-label">Gust autentic din Transilvania</p>
-            <h1>BUNĂTĂȚI DIN ARDEAL<br /><span>&amp; MARAMUREȘ</span></h1>
+            <h1>
+              BUNĂTĂȚI DIN ARDEAL
+              <br />
+              <span>&amp; MARAMUREȘ</span>
+            </h1>
             <p className="hero-slogan">Produse tradiționale românești, livrate la ușa ta</p>
             <div className="hero-buttons">
-              <a className="hero-button primary-button" href="#produse">Vezi produsele</a>
-              <a className="hero-button secondary-button" href="#categorii">Descoperă categoriile</a>
+              <a className="hero-button primary-button" href="#produse">
+                Vezi produsele
+              </a>
+              <a className="hero-button secondary-button" href="#categorii">
+                Descoperă categoriile
+              </a>
             </div>
           </div>
         </div>
@@ -403,7 +430,9 @@ function App() {
                 <p className="modal-eyebrow">Catalog rapid</p>
                 <h2 id="search-title">Caută produse sau categorii</h2>
               </div>
-              <button type="button" className="close-panel-button" onClick={() => setSearchOpen(false)} aria-label="Închide căutarea">×</button>
+              <button type="button" className="close-panel-button" onClick={() => setSearchOpen(false)} aria-label="Închide căutarea">
+                ×
+              </button>
             </div>
 
             <label className="search-field" htmlFor="product-search">
@@ -417,7 +446,12 @@ function App() {
               {searchResults.map((product) => (
                 <button type="button" className="search-result" key={product.id} onClick={() => openProduct(product.id)}>
                   <img src={product.image} alt="" onError={(event) => handleProductImageError(event, product.id)} />
-                  <span><strong>{product.name}</strong><small>{CATEGORY_NAMES[product.category]} · {product.price} lei</small></span>
+                  <span>
+                    <strong>{product.name}</strong>
+                    <small>
+                      {CATEGORY_NAMES[product.category]} · {product.price} lei
+                    </small>
+                  </span>
                 </button>
               ))}
             </div>
@@ -433,24 +467,59 @@ function App() {
                 <p className="modal-eyebrow">Cont demonstrativ</p>
                 <h2 id="account-title">{accountMode === "login" ? "Autentificare" : "Creează un cont"}</h2>
               </div>
-              <button type="button" className="close-panel-button" onClick={() => setAccountOpen(false)} aria-label="Închide fereastra contului">×</button>
+              <button type="button" className="close-panel-button" onClick={() => setAccountOpen(false)} aria-label="Închide fereastra contului">
+                ×
+              </button>
             </div>
 
             <div className="account-tabs" role="tablist" aria-label="Alege tipul formularului">
-              <button type="button" className={accountMode === "login" ? "active" : ""} onClick={() => { setAccountMode("login"); setAccountMessage(""); }}>Autentificare</button>
-              <button type="button" className={accountMode === "register" ? "active" : ""} onClick={() => { setAccountMode("register"); setAccountMessage(""); }}>Cont nou</button>
+              <button
+                type="button"
+                className={accountMode === "login" ? "active" : ""}
+                onClick={() => {
+                  setAccountMode("login");
+                  setAccountMessage("");
+                }}
+              >
+                Autentificare
+              </button>
+              <button
+                type="button"
+                className={accountMode === "register" ? "active" : ""}
+                onClick={() => {
+                  setAccountMode("register");
+                  setAccountMessage("");
+                }}
+              >
+                Cont nou
+              </button>
             </div>
 
             <form className="account-form" onSubmit={handleAccountSubmit}>
               {accountMode === "register" && (
-                <label>Nume și prenume<input type="text" name="name" autoComplete="name" required /></label>
+                <label>
+                  Nume și prenume
+                  <input type="text" name="name" autoComplete="name" required />
+                </label>
               )}
-              <label>Adresă de e-mail<input type="email" name="email" autoComplete="email" required /></label>
-              <label>Parolă<input type="password" name="password" autoComplete={accountMode === "login" ? "current-password" : "new-password"} minLength="6" required /></label>
-              <button type="submit" className="form-submit-button">{accountMode === "login" ? "Intră în cont" : "Creează contul"}</button>
+              <label>
+                Adresă de e-mail
+                <input type="email" name="email" autoComplete="email" required />
+              </label>
+              <label>
+                Parolă
+                <input type="password" name="password" autoComplete={accountMode === "login" ? "current-password" : "new-password"} minLength="6" required />
+              </label>
+              <button type="submit" className="form-submit-button">
+                {accountMode === "login" ? "Intră în cont" : "Creează contul"}
+              </button>
             </form>
 
-            {accountMessage && <p className="form-feedback" role="status">{accountMessage}</p>}
+            {accountMessage && (
+              <p className="form-feedback" role="status">
+                {accountMessage}
+              </p>
+            )}
             <p className="demo-note">Funcționalitate demonstrativă. Datele sunt salvate doar local, în browserul tău.</p>
           </section>
         </div>
@@ -461,48 +530,76 @@ function App() {
           <aside className="shop-panel" role="dialog" aria-modal="true" aria-labelledby="shop-panel-title" onClick={(event) => event.stopPropagation()}>
             <div className="shop-panel-header">
               <h2 id="shop-panel-title">{activePanel === "favorites" ? "Produse preferate" : "Coș de cumpărături"}</h2>
-              <button type="button" className="close-panel-button" onClick={() => setActivePanel(null)} aria-label="Închide panoul">×</button>
+              <button type="button" className="close-panel-button" onClick={() => setActivePanel(null)} aria-label="Închide panoul">
+                ×
+              </button>
             </div>
 
             <div className="shop-panel-content">
-              {activePanel === "favorites" && (favoriteItems.length === 0 ? (
-                <p className="empty-panel-message">Nu ai produse favorite.</p>
-              ) : favoriteItems.map((product) => (
-                <article className="panel-product" key={product.id}>
-                  <img src={product.image} alt={product.name} className="panel-product-image" onError={(event) => handleProductImageError(event, product.id)} />
-                  <div className="panel-product-info"><h3>{product.name}</h3><p>{product.price} lei</p></div>
-                  <button type="button" className="panel-remove-button" onClick={() => removeFromFavorites(product.id)} aria-label={`Elimină ${product.name} din favorite`}>×</button>
-                </article>
-              )))}
-
-              {activePanel === "cart" && (cartItems.length === 0 ? (
-                <p className="empty-panel-message">Coșul este gol.</p>
-              ) : (
-                <>
-                  {cartItems.map((product) => (
-                    <article className="panel-product panel-cart-product" key={product.id}>
+              {activePanel === "favorites" &&
+                (favoriteItems.length === 0 ? (
+                  <p className="empty-panel-message">Nu ai produse favorite.</p>
+                ) : (
+                  favoriteItems.map((product) => (
+                    <article className="panel-product" key={product.id}>
                       <img src={product.image} alt={product.name} className="panel-product-image" onError={(event) => handleProductImageError(event, product.id)} />
                       <div className="panel-product-info">
                         <h3>{product.name}</h3>
-                        <p>{product.price} lei / {product.weight}</p>
-                        <div className="quantity-controls" aria-label={`Cantitate pentru ${product.name}`}>
-                          <button type="button" onClick={() => decreaseCartQuantity(product.id)} aria-label="Scade cantitatea">−</button>
-                          <span>{product.quantity}</span>
-                          <button type="button" onClick={() => addToCart(product.id)} aria-label="Crește cantitatea">+</button>
-                        </div>
-                        <p className="panel-product-subtotal">Subtotal: {(product.price * product.quantity).toFixed(2)} lei</p>
+                        <p>{product.price} lei</p>
                       </div>
-                      <button type="button" className="panel-remove-button" onClick={() => removeFromCart(product.id)} aria-label={`Elimină ${product.name} din coș`}>×</button>
+                      <button type="button" className="panel-remove-button" onClick={() => removeFromFavorites(product.id)} aria-label={`Elimină ${product.name} din favorite`}>
+                        ×
+                      </button>
                     </article>
-                  ))}
-                  <div className="cart-summary">
-                    <div><span>Subtotal produse</span><strong>{cartSubtotal.toFixed(2)} lei</strong></div>
-                    <div><span>Transport</span><strong>{shippingCost === 0 ? "Gratuit" : `${shippingCost.toFixed(2)} lei`}</strong></div>
-                    <div className="cart-summary-total"><span>Total comandă</span><strong>{orderTotal.toFixed(2)} lei</strong></div>
-                    {cartSubtotal > 0 && cartSubtotal < freeShippingLimit && <p>Mai adaugă {(freeShippingLimit - cartSubtotal).toFixed(2)} lei pentru transport gratuit.</p>}
-                  </div>
-                </>
-              ))}
+                  ))
+                ))}
+
+              {activePanel === "cart" &&
+                (cartItems.length === 0 ? (
+                  <p className="empty-panel-message">Coșul este gol.</p>
+                ) : (
+                  <>
+                    {cartItems.map((product) => (
+                      <article className="panel-product panel-cart-product" key={product.id}>
+                        <img src={product.image} alt={product.name} className="panel-product-image" onError={(event) => handleProductImageError(event, product.id)} />
+                        <div className="panel-product-info">
+                          <h3>{product.name}</h3>
+                          <p>
+                            {product.price} lei / {product.weight}
+                          </p>
+                          <div className="quantity-controls" aria-label={`Cantitate pentru ${product.name}`}>
+                            <button type="button" onClick={() => decreaseCartQuantity(product.id)} aria-label="Scade cantitatea">
+                              −
+                            </button>
+                            <span>{product.quantity}</span>
+                            <button type="button" onClick={() => addToCart(product.id)} aria-label="Crește cantitatea">
+                              +
+                            </button>
+                          </div>
+                          <p className="panel-product-subtotal">Subtotal: {(product.price * product.quantity).toFixed(2)} lei</p>
+                        </div>
+                        <button type="button" className="panel-remove-button" onClick={() => removeFromCart(product.id)} aria-label={`Elimină ${product.name} din coș`}>
+                          ×
+                        </button>
+                      </article>
+                    ))}
+                    <div className="cart-summary">
+                      <div>
+                        <span>Subtotal produse</span>
+                        <strong>{cartSubtotal.toFixed(2)} lei</strong>
+                      </div>
+                      <div>
+                        <span>Transport</span>
+                        <strong>{shippingCost === 0 ? "Gratuit" : `${shippingCost.toFixed(2)} lei`}</strong>
+                      </div>
+                      <div className="cart-summary-total">
+                        <span>Total comandă</span>
+                        <strong>{orderTotal.toFixed(2)} lei</strong>
+                      </div>
+                      {cartSubtotal > 0 && cartSubtotal < freeShippingLimit && <p>Mai adaugă {(freeShippingLimit - cartSubtotal).toFixed(2)} lei pentru transport gratuit.</p>}
+                    </div>
+                  </>
+                ))}
             </div>
           </aside>
         </div>
@@ -511,7 +608,9 @@ function App() {
       <main id="continut-principal">
         <section id="despre-noi" className="about-section" aria-labelledby="despre-title">
           <div className="about-layout">
-            <figure className="about-image-card about-image-left"><img src="/assets/Despre/casa-traditionala.webp" alt="Casă tradițională din Maramureș" loading="lazy" /></figure>
+            <figure className="about-image-card about-image-left">
+              <img src="/assets/Despre/casa-traditionala.webp" alt="Casă tradițională din Maramureș" loading="lazy" />
+            </figure>
             <div className="about-container">
               <p className="section-label">Povestea noastră</p>
               <h2 id="despre-title">Despre noi</h2>
@@ -522,7 +621,9 @@ function App() {
                 <p>Oferta se dezvoltă treptat cu produse tradiționale, specialități regionale, produse artizanale și obiecte care păstrează identitatea locului.</p>
               </div>
             </div>
-            <figure className="about-image-card about-image-right"><img src="/assets/Despre/interior-maramures.webp" alt="Interior tradițional cu țesături și obiecte din Maramureș" loading="lazy" /></figure>
+            <figure className="about-image-card about-image-right">
+              <img src="/assets/Despre/interior-maramures.webp" alt="Interior tradițional cu țesături și obiecte din Maramureș" loading="lazy" />
+            </figure>
           </div>
         </section>
 
@@ -533,10 +634,14 @@ function App() {
             <div className="categories-grid">
               {CATEGORY_CONFIG.map((category) => (
                 <article className="category-card" key={category.id}>
-                  <div className="category-symbol" aria-hidden="true"><CategoryIcon type={category.icon} /></div>
+                  <div className="category-symbol" aria-hidden="true">
+                    <CategoryIcon type={category.icon} />
+                  </div>
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>
-                  <a href={`#categorie-${category.id}`} aria-label={`Vezi produsele din categoria ${category.title}`}>Descoperă produsele</a>
+                  <a href={`#categorie-${category.id}`} aria-label={`Vezi produsele din categoria ${category.title}`}>
+                    Descoperă produsele
+                  </a>
                 </article>
               ))}
             </div>
@@ -546,7 +651,10 @@ function App() {
         <section id="produse" className="products-section" aria-labelledby="produse-title">
           <div className="products-container">
             <div className="products-heading">
-              <div><p className="products-label">Selecție tradițională</p><h2 id="produse-title">Produse tradiționale</h2></div>
+              <div>
+                <p className="products-label">Selecție tradițională</p>
+                <h2 id="produse-title">Produse tradiționale</h2>
+              </div>
               <label className="sort-label" htmlFor="sort-products">
                 Sortează după preț
                 <select id="sort-products" value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
@@ -558,22 +666,33 @@ function App() {
             </div>
 
             {loading && <p className="products-status">Se încarcă produsele...</p>}
-            {productsError && <p className="products-status products-error" role="alert">{productsError}</p>}
+            {productsError && (
+              <p className="products-status products-error" role="alert">
+                {productsError}
+              </p>
+            )}
 
-            {!loading && !productsError && CATEGORY_CONFIG.map((category) => {
-              const categoryProducts = sortedProducts.filter((product) => product.category === category.id);
-              if (categoryProducts.length === 0) return null;
+            {!loading &&
+              !productsError &&
+              CATEGORY_CONFIG.map((category) => {
+                const categoryProducts = sortedProducts.filter((product) => product.category === category.id);
+                if (categoryProducts.length === 0) return null;
 
-              return (
-                <section className="product-category-group" id={`categorie-${category.id}`} key={category.id} aria-labelledby={`titlu-${category.id}`}>
-                  <div className="category-group-heading">
-                    <span className="category-group-icon" aria-hidden="true"><CategoryIcon type={category.icon} /></span>
-                    <div><p>Selecție regională</p><h3 id={`titlu-${category.id}`}>{category.title}</h3></div>
-                  </div>
-                  <div className="products-grid">{categoryProducts.map(renderProductCard)}</div>
-                </section>
-              );
-            })}
+                return (
+                  <section className="product-category-group" id={`categorie-${category.id}`} key={category.id} aria-labelledby={`titlu-${category.id}`}>
+                    <div className="category-group-heading">
+                      <span className="category-group-icon" aria-hidden="true">
+                        <CategoryIcon type={category.icon} />
+                      </span>
+                      <div>
+                        <p>Selecție regională</p>
+                        <h3 id={`titlu-${category.id}`}>{category.title}</h3>
+                      </div>
+                    </div>
+                    <div className="products-grid">{categoryProducts.map(renderProductCard)}</div>
+                  </section>
+                );
+              })}
           </div>
         </section>
 
@@ -585,15 +704,29 @@ function App() {
               <p className="contact-lead">Contactează-ne cu încredere dacă ai poftă de bunătăți din zonă. Căutăm produse locale, comenzi personalizate și chiar obiecte vintage sau retro, din podul bunicii ori de la târgurile de vechituri.</p>
 
               <ul className="contact-details">
-                <li><span aria-hidden="true">✉</span><a href="mailto:helga.sabo@example.com">helga.sabo@example.com</a></li>
-                <li><span aria-hidden="true">⌖</span><span>Satu Mare, România</span></li>
+                <li>
+                  <span aria-hidden="true">✉</span>
+                  <a href="mailto:helga.sabo@example.com">helga.sabo@example.com</a>
+                </li>
+                <li>
+                  <span aria-hidden="true">⌖</span>
+                  <span>Satu Mare, România</span>
+                </li>
               </ul>
 
               <div className="social-links" aria-label="Rețele sociale">
-                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><SocialIcon type="facebook" /></a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><SocialIcon type="instagram" /></a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><SocialIcon type="linkedin" /></a>
-                <a href="https://github.com/larixsh" target="_blank" rel="noreferrer" aria-label="GitHub"><SocialIcon type="github" /></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook">
+                  <SocialIcon type="facebook" />
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                  <SocialIcon type="instagram" />
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                  <SocialIcon type="linkedin" />
+                </a>
+                <a href="https://github.com/larixsh" target="_blank" rel="noreferrer" aria-label="GitHub">
+                  <SocialIcon type="github" />
+                </a>
               </div>
             </aside>
 
@@ -605,20 +738,40 @@ function App() {
                 <fieldset className="interest-options">
                   <legend>Sunt interesat de</legend>
                   {["Produse tradiționale", "Comandă personalizată", "Producător local", "Vintage / Retro"].map((option, index) => (
-                    <label key={option}><input type="radio" name="interest" value={option} defaultChecked={index === 0} /><span>{option}</span></label>
+                    <label key={option}>
+                      <input type="radio" name="interest" value={option} defaultChecked={index === 0} />
+                      <span>{option}</span>
+                    </label>
                   ))}
                 </fieldset>
 
-                <label>Numele tău<input type="text" name="name" autoComplete="name" required /></label>
-                <label>Adresa de e-mail<input type="email" name="email" autoComplete="email" required /></label>
-                <label>Mesajul tău<textarea name="message" rows="5" minLength="10" required></textarea></label>
+                <label>
+                  Numele tău
+                  <input type="text" name="name" autoComplete="name" required />
+                </label>
+                <label>
+                  Adresa de e-mail
+                  <input type="email" name="email" autoComplete="email" required />
+                </label>
+                <label>
+                  Mesajul tău<textarea name="message" rows="5" minLength="10" required></textarea>
+                </label>
 
-                <label className="consent-field"><input type="checkbox" required /><span>Sunt de acord ca datele introduse să fie folosite pentru a răspunde solicitării mele.</span></label>
+                <label className="consent-field">
+                  <input type="checkbox" required />
+                  <span>Sunt de acord ca datele introduse să fie folosite pentru a răspunde solicitării mele.</span>
+                </label>
 
-                <button type="submit" className="form-submit-button">Trimite mesajul <span aria-hidden="true">→</span></button>
+                <button type="submit" className="form-submit-button">
+                  Trimite mesajul <span aria-hidden="true">→</span>
+                </button>
               </form>
 
-              {contactMessage && <p className="form-feedback" role="status">{contactMessage}</p>}
+              {contactMessage && (
+                <p className="form-feedback" role="status">
+                  {contactMessage}
+                </p>
+              )}
             </div>
           </div>
         </section>

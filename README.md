@@ -173,9 +173,13 @@ npm run dev
 ## Author
 
 Helga Sabo
-Frontend Developer
+
+Web Frontend Developer
+
 Data Analyst
+
 Romania
+
 https://nv-transylvanian-traditional-market.vercel.app/
 
 ---
