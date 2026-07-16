@@ -341,8 +341,6 @@ body,
   }
 }
 
-
-
 @media (max-width: 600px) {
   .about-section {
     padding: 65px 24px;
@@ -352,8 +350,6 @@ body,
     font-size: 17px;
   }
 }
-
-
 
 .nav-actions {
   display: flex;
@@ -988,7 +984,6 @@ body,
   color: #7a2f1f;
 }
 
-
 .skip-link {
   position: fixed;
   top: 12px;
@@ -1008,7 +1003,6 @@ body,
   transform: translateY(0);
 }
 
-/* Mobile navigation and Hero */
 @media (max-width: 900px) {
   .main-navbar {
     position: fixed;
@@ -1153,11 +1147,6 @@ body,
     font-size: 34px;
   }
 }
-
-
-/* =========================================================
-   FUNCTIONAL SEARCH, ACCOUNT, PRODUCT GROUPS AND CONTACT
-   ========================================================= */
 
 body.modal-open {
   overflow: hidden;
@@ -1421,9 +1410,7 @@ body.modal-open {
 
 .contact-section {
   padding: 95px 7%;
-  background:
-    radial-gradient(circle at top left, rgba(217, 173, 99, 0.16), transparent 36%),
-    linear-gradient(135deg, #d9dfd1 0%, #eef0e9 100%);
+  background: radial-gradient(circle at top left, rgba(217, 173, 99, 0.16), transparent 36%), linear-gradient(135deg, #d9dfd1 0%, #eef0e9 100%);
 }
 
 .contact-shell {
@@ -1441,9 +1428,7 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   padding: 48px;
-  background:
-    radial-gradient(circle at bottom right, rgba(217, 173, 99, 0.18), transparent 34%),
-    #26390b;
+  background: radial-gradient(circle at bottom right, rgba(217, 173, 99, 0.18), transparent 34%), #26390b;
   color: #ffffff;
 }
 
@@ -1512,7 +1497,10 @@ body.modal-open {
   border-radius: 50%;
   color: #b6d78b;
   text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .social-links a:hover,

@@ -3,6 +3,11 @@
 This project is an MVP (Minimum Viable Product) of a modern e-commerce platform, web application, that promotes traditional Romanian artisanal products from the Ardeal and Maramureș regions. The platform was created to support small local producers and bring the authentic taste of the Romanian countryside to the digital world.
 This project was completed as a final project for the Web Front-End Development course as part of the TECHABLE program. TECHABLE is a program organized by Betfair Romania Development with the support of Digital Stack and Caiac Smile as a social partner. The main goal of the learning program, designed for people with severe and significant disabilities, is to provide them with the skills needed to navigate and effectively use digital technologies in various professional and personal contexts.
 
+<p align="center">
+  <img src="images/GitHub_Banner_NV_Transylvanian_Traditional_Market.png"
+       alt="NV Transylvanian Traditional Market"
+       width="100%">
+</p>
 ---
 
 ## Live Status
@@ -106,15 +111,9 @@ The project follows accessibility best practices:
 
 The following features are planned:
 
-- Search functionality
-- User authentication
-- Product filtering
-- Customer accounts
-- Wishlist persistence
 - Checkout process
 - Product reviews
 - Order history
-- Contact form with validation
 - Vintage & Antique Marketplace
 - Custom product requests
 - Traditional handcrafted products
@@ -177,6 +176,7 @@ Helga Sabo
 Frontend Developer
 Data Analyst
 Romania
+https://nv-transylvanian-traditional-market.vercel.app/
 
 ---
 
